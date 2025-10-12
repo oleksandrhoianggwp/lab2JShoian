@@ -9,7 +9,9 @@
 
     var names = ["Bill", "John", "Jen", "Jason", "Paul", "Frank", "Steven", "Larry", "Paula", "Laura", "Jim"];
 
-	// Метод 1: класичний з умови на першу літеру (j/J)
+    // Метод 1: класичний з умови на першу літеру (j/J)
+    let intro1 = `Метод 1: Якщо ім'я починається з 'j'/'J' — роаст, інакше — похвала.`
+    console.log(intro1)
 	for (let name of names) {
 		if (["j", "J"].includes(name.charAt(0))) {
 			roast.say(name)
@@ -31,6 +33,7 @@
 	}
 
     let threshold = config.asciiThreshold; 
+    console.log(`Поріг для методу 2: ${threshold}`)
 	for (let name of names) {
 		let score = asciiScore(name.toLowerCase());
 		let sayPraise = score >= threshold;
