@@ -1,5 +1,13 @@
 ;(function() {
-	var names = ["Bill", "John", "Jen", "Jason", "Paul", "Frank", "Steven", "Larry", "Paula", "Laura", "Jim"];
+    var config = {
+        asciiThreshold: 450,
+        lastLetterRule: {
+            enabled: true,
+            targetLetter: 'a' // приклад: якщо остання літера 'a' — похвала
+        }
+    }
+
+    var names = ["Bill", "John", "Jen", "Jason", "Paul", "Frank", "Steven", "Larry", "Paula", "Laura", "Jim"];
 
 	// Метод 1: класичний з умови на першу літеру (j/J)
 	for (let name of names) {
@@ -10,8 +18,7 @@
 		}
 	}
 
-	// Метод 2: оригінальний — ASCII score і поріг
-	let explain = `Метод 2: Обчислюємо суму ASCII-кодів літер імені.
+    let explain = `Метод 2: Обчислюємо суму ASCII-кодів літер імені.
 	Якщо score >= threshold — мемна похвала, інакше — мемний роаст.`
 	console.log(explain)
 
@@ -23,12 +30,22 @@
 		return sum;
 	}
 
-	let threshold = 450; // поріг можна міняти для демонстрації
+    let threshold = config.asciiThreshold; 
 	for (let name of names) {
 		let score = asciiScore(name.toLowerCase());
 		let sayPraise = score >= threshold;
 		sayPraise ? praise.say(name) : roast.say(name);
 	}
+
+    // Метод 3: за останньою літерою
+    if (config.lastLetterRule.enabled) {
+        let note = `Метод 3: Якщо ім'я закінчується на '${config.lastLetterRule.targetLetter}', даємо похвалу, інакше — роаст.`
+        console.log(note)
+        for (let name of names) {
+            let endsWith = name.toLowerCase().endsWith(config.lastLetterRule.targetLetter.toLowerCase());
+            endsWith ? praise.say(name) : roast.say(name);
+        }
+    }
 })()
 
 
