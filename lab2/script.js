@@ -9,7 +9,6 @@
 
     var names = ["Bill", "John", "Jen", "Jason", "Paul", "Frank", "Steven", "Larry", "Paula", "Laura", "Jim"];
 
-    // Метод 1: класичний з умови на першу літеру (j/J)
     let intro1 = `Метод 1: Якщо ім'я починається з 'j'/'J' — роаст, інакше — похвала.`
     console.log(intro1)
 	for (let name of names) {
