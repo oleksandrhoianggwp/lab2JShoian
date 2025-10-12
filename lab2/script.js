@@ -3,7 +3,7 @@
         asciiThreshold: 450,
         lastLetterRule: {
             enabled: true,
-            targetLetter: 'a' // приклад: якщо остання літера 'a' — похвала
+            targetLetter: 'a' 
         }
     }
 
@@ -37,7 +37,6 @@
 		sayPraise ? praise.say(name) : roast.say(name);
 	}
 
-    // Метод 3: за останньою літерою
     if (config.lastLetterRule.enabled) {
         let note = `Метод 3: Якщо ім'я закінчується на '${config.lastLetterRule.targetLetter}', даємо похвалу, інакше — роаст.`
         console.log(note)
